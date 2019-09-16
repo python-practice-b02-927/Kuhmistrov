@@ -6,7 +6,7 @@ shape('triangle')
 def nstar(n):
 	for i in range(n):
 		forward(300)
-		left(1800/n)
+		left(180 - 180/n)
 
 n=int(input())
 nstar(n)
