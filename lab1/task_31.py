@@ -2,35 +2,19 @@
 
 from pyrob.api import *
 
-
-@task(delay=0.01)
-def task_8_30():
-	cango=True
+def Go_to_the_left():
 	while not wall_is_on_the_left():
 		move_left()
-	while cango:
-		f=False
-		while not wall_is_on_the_right():
-			if not wall_is_beneath():
-				f=True
-			move_right()
+
+@task(delay=0.001)
+def task_8_30():
+	Go_to_the_left()
+	while not(wall_is_on_the_right() and wall_is_beneath()):
+		move_right()
 		if not wall_is_beneath():
-			f=True
-		while not wall_is_on_the_left():
-			move_left()
-		if f:
-			while not wall_is_on_the_right():
-				if not wall_is_beneath():
-					move_down()
-					while not wall_is_on_the_left():
-						move_left()
-				move_right()
-			if not wall_is_beneath():
-				move_down()
-				while not wall_is_on_the_left():
-					move_left()
-		else:
-			cango=f
+			move_down()
+			Go_to_the_left()
+	Go_to_the_left()
 
 
 
