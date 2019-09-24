@@ -51,7 +51,9 @@ def draw_left_arm(window):
 #Правая рука будет зеркальным отражением левого
 
 def draw_right_arm(window):
-	pass
+	rigth_arm=gr.Polygon(gr.Point(690,550),gr.Point(880,225),gr.Point(860,210),gr.Point(660,540))
+	rigth_arm.setFill('yellow')
+	rigth_arm.draw(window)
 
 #Конец зеркальных элементов-функций
 
