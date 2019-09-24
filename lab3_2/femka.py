@@ -23,7 +23,9 @@ def draw_face(window):
 	pass
 
 def draw_body(window):
-	pass
+	body=gr.Circle(gr.Point(width/2,height+100),250)
+	body.setFill('orange')
+	body.draw(window)
 
 #Отражения
 
@@ -61,6 +63,7 @@ def main(window):
 	background=gr.Rectangle(gr.Point(0,0),gr.Point(width,height))
 	background.setFill("black")
 	background.draw(window)
+
 	#Рисуем саму картинку
 	draw_body(window)
 	draw_right_arm(window)
