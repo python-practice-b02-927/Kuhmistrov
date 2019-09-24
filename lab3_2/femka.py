@@ -46,7 +46,9 @@ def draw_right_hand(window):
 	pass
 
 def draw_left_arm(window):
-	pass
+	left_arm=gr.Polygon(gr.Point(310,550),gr.Point(120,225),gr.Point(140,210),gr.Point(340,540))
+	left_arm.setFill('yellow')
+	left_arm.draw(window)
 
 #Правая рука будет зеркальным отражением левого
 
