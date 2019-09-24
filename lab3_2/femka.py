@@ -1,5 +1,8 @@
 import graphics as gr
 
+wight=1000
+height=600
+
 def draw_eye(window,coords):
 	pass
 
@@ -67,7 +70,7 @@ def main(window):
 	draw_face(window)
 	#draw_hair(window)
 
-window 	= gr.GraphWin("Window",1000, 600)
+window 	= gr.GraphWin("Window", width, height)
 
 main(window)
 window.getMouse()
