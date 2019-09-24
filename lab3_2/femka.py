@@ -1,6 +1,6 @@
 import graphics as gr
 
-wight=1000
+width=1000
 height=600
 
 def draw_eye(window,coords):
@@ -57,6 +57,10 @@ def draw_poster(window):
 	pass
 
 def main(window):
+	#Рисуем фон
+	background=gr.Rectangle(gr.Point(0,0),gr.Point(width,height))
+	background.setFill("black")
+	background.draw(window)
 	#Рисуем саму картинку
 	draw_body(window)
 	draw_right_arm(window)
@@ -70,7 +74,7 @@ def main(window):
 	draw_face(window)
 	#draw_hair(window)
 
-window 	= gr.GraphWin("Window", width, height)
+window=gr.GraphWin("Window",width,height)
 
 main(window)
 window.getMouse()
