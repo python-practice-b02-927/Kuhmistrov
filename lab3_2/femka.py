@@ -9,7 +9,7 @@ def draw_eye(window,coords):
 def draw_nose(window,coords):
 	pass
 
-def draw_mounht(window,coords):
+def draw_mounth(window,coords):
 	pass
 
 def draw_curl(window,coords, angle):	
