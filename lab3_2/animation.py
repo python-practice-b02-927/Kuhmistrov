@@ -57,4 +57,11 @@ def drawing_pendulum(pendulum_coords, pendulum_angle, pendulum_side):
     pendulum.undraw(Animation_Win)
 
 
-main()
+pendulum_coords = gr.Point(540, 540)
+center_coords = gr.Point(540, 360)
+velocity = (10, 0)
+pendulum_side = 100
+distance = absolute_value(pendulum_coords,center_coords)
+mass = 500
+moment_of_inertia = mass * (pendulum_side**2/12 + distance**2)
+
