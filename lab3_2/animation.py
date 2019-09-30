@@ -71,5 +71,9 @@ moment_of_inertia = mass * (pendulum_side**2/12 + distance**2)
 
 kernel = gr.Line(center_coords,pendulum_coords)
 kernel.setFill('white')
+kernel.setWidth(3)
+kernel.draw(window)
+
+
 
 
