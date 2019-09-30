@@ -17,6 +17,8 @@ def absolute_value(vector):
     result = (vector.x**2 + vector.y**2)**0.5
     return result
 
+def recount_coords(coords, velocity):
+    return add(coords,velocity)
 
 
 main()
