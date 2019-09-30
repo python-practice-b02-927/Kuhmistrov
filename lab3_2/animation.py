@@ -4,6 +4,10 @@ import math
 SIZE_X = 1080
 SIZE_Y = 720
 
+background = gr.Rectangle(gr.Point(0, 0), gr.Point(SIZE_X, SIZE_Y))
+background.setFill('black')
+background.draw(window)
+
 #acceleration of gravity
 g=5
 
@@ -53,7 +57,7 @@ def drawing_pendulum(pendulum_coords, pendulum_angle, pendulum_side):
                gr.Point(c.x + s*math.cos(math.pi/4 - a)),gr.Point(c.y - s*math.sin(math.pi/4 - a)),
                gr.Point(c.x + s*math.sin(math.pi/4 - a)),gr.Point(c.y + s*math.cos(math.pi/4 - a)),
                gr.Point(c.x - s*math.cos(math.pi/4 - a)),gr.Point(c.y + s*math.sin(math.pi/4 - a)))
-    pendulum.setFill('black')
+    pendulum.setFill('white')
     pendulum.undraw(Animation_Win)
 
 
@@ -61,7 +65,11 @@ pendulum_coords = gr.Point(540, 540)
 center_coords = gr.Point(540, 360)
 velocity = (10, 0)
 pendulum_side = 100
-distance = absolute_value(pendulum_coords,center_coords)
+distance = absolute_value(sub_coords(pendulum_coords,center_coords))
 mass = 500
 moment_of_inertia = mass * (pendulum_side**2/12 + distance**2)
+
+kernel = gr.Line(center_coords,pendulum_coords)
+kernel.setFill('white')
+
 
