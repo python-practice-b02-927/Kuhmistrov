@@ -1,4 +1,5 @@
 import graphics as gr
+import math
 
 SIZE_X = 1080
 SIZE_Y = 720
@@ -44,7 +45,16 @@ def recount_pendulum_angle(pendulum_coords, center_coords):
     distance = absolute_value(radius_vector)
     return radius_vector.x/distance
 
-
+def drawing_pendulum(pendulum_coords, pendulum_angle, pendulum_side):
+    c=pendulum_coords
+    a=pendulum_angle
+    s=pendulum_side / 1.41
+    pendulum = gr.Polygon(gr.Point(c.x - s*math.sin(math.pi/4 - a)),gr.Point(c.y - s*math.cos(math.pi/4 - a)),
+               gr.Point(c.x + s*math.cos(math.pi/4 - a)),gr.Point(c.y - s*math.sin(math.pi/4 - a)),
+               gr.Point(c.x + s*math.sin(math.pi/4 - a)),gr.Point(c.y + s*math.cos(math.pi/4 - a)),
+               gr.Point(c.x - s*math.cos(math.pi/4 - a)),gr.Point(c.y + s*math.sin(math.pi/4 - a)))
+    pendulum.setFill('black')
+    pendulum.undraw(Animation_Win)
 
 
 main()
