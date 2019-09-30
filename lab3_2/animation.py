@@ -29,5 +29,12 @@ def recount_velocity(velocity, acceleration):
 def recount_acceleration(pendulum_coords, center_coords, velocity, moment_of_inertia, mass):
     radius_vector = sub(pendulum_coords, center_coords)
     distance = absolute_value(radius_vector)
+    absolute_velocity = absolute_value(velocity)
+    angular_acceleration = (g * mass * radius_vector.x) / (distance * moment_of_inertia)
+    normal_acceleration = gr.Point(((-1) * radius_vector.x * absolute_velocity**2)/(distance**2),
+    ((-1) * radius_vector.y * absolute_velocity**2)/(distance**2))
+    tangential_acceleration = gr.Point(angular_acceleration * (-1) * radius_vector.y, angular_acceleration * radius_vector.x)
+    return add(normal_acceleration,tangential_acceleration)
+
 
 main()
