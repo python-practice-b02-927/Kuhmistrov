@@ -20,5 +20,8 @@ def absolute_value(vector):
 def recount_coords(coords, velocity):
     return add(coords,velocity)
 
+def recount_velocity(velocity, acceleration):
+    return add(velocity, acceleration)
+
 
 main()
