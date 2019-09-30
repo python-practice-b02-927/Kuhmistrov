@@ -13,6 +13,10 @@ def sub_coords(point_1, point_2):
     total = gr.Point(point_1.x - point_2.x, point_1.y - point_2.y)
     return total
 
+def absolute_value(vector):
+    result = (vector.x**2 + vector.y**2)**0.5
+    return result
+
 
 
 main()
