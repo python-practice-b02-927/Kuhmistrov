@@ -74,6 +74,5 @@ kernel.setFill('white')
 kernel.setWidth(3)
 kernel.draw(window)
 
-
-
-
+while True:
+    pass
