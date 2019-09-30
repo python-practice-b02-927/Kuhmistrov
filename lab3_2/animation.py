@@ -4,14 +4,14 @@ import math
 SIZE_X = 1080
 SIZE_Y = 720
 
-background = gr.Rectangle(gr.Point(0, 0), gr.Point(SIZE_X, SIZE_Y))
-background.setFill('black')
-background.draw(window)
-
 #acceleration of gravity
 g=5
 
 window = gr.GraphWin("Animation_Win", SIZE_X, SIZE_Y)
+
+background = gr.Rectangle(gr.Point(0, 0), gr.Point(SIZE_X, SIZE_Y))
+background.setFill('black')
+background.draw(window)
 
 def add_coords(point_1, point_2):
     total = gr.Point(point_1.x + point_2.x, point_1.y + point_2.y)
@@ -58,7 +58,7 @@ def drawing_pendulum(pendulum_coords, pendulum_angle, pendulum_side):
                gr.Point(c.x + s*math.sin(math.pi/4 - a)),gr.Point(c.y + s*math.cos(math.pi/4 - a)),
                gr.Point(c.x - s*math.cos(math.pi/4 - a)),gr.Point(c.y + s*math.sin(math.pi/4 - a)))
     pendulum.setFill('white')
-    pendulum.undraw(Animation_Win)
+    pendulum.undraw(window)
 
 
 pendulum_coords = gr.Point(540, 540)
