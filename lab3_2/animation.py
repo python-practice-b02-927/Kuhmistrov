@@ -9,7 +9,6 @@ g=5
 
 window = gr.GraphWin("Animation_Win", SIZE_X, SIZE_Y)
 
-
 background = gr.Rectangle(gr.Point(0, 0), gr.Point(SIZE_X, SIZE_Y))
 background.setFill('black')
 background.draw(window)
@@ -51,15 +50,17 @@ def recount_pendulum_angle(pendulum_coords, center_coords):
     return (-1)*radius_vector.x/distance
 
 def drawing_pendulum(pendulum_coords, pendulum_angle, pendulum_side):
+    pendulum.undraw()
     c=pendulum_coords
-    a=pendulum_angle
+    a=recount_pendulum_angle(pendulum_coords, center_coords)
     s=pendulum_side / 1.41
     pendulum = gr.Polygon(gr.Point((c.x - s*math.sin(math.pi/4 - a)),(c.y - s*math.cos(math.pi/4 - a))),
                gr.Point((c.x + s*math.cos(math.pi/4 - a)),(c.y - s*math.sin(math.pi/4 - a))),
                gr.Point((c.x + s*math.sin(math.pi/4 - a)),(c.y + s*math.cos(math.pi/4 - a))),
                gr.Point((c.x - s*math.cos(math.pi/4 - a)),(c.y + s*math.sin(math.pi/4 - a))))
     pendulum.setFill('white')
-    pendulum.undraw()
+    pendulum.draw(window)
+    
 
 
 #main body begins there ->
@@ -82,7 +83,6 @@ pendulum.setFill('white')
 pendulum.draw(window)
 
 while True:
-        #clear_window()	
         pendulum_coords = recount_coords(pendulum_coords, velocity)
         kernel.undraw()
         kernel = gr.Line(pendulum_coords, center_coords)
@@ -90,8 +90,8 @@ while True:
         kernel.setWidth(3)
         kernel.draw(window)
 
+        
         pendulum.undraw()
-        #drawing_pendulum(pendulum_coords, recount_pendulum_angle(pendulum_coords, center_coords), pendulum_side)
         c=pendulum_coords
         a=recount_pendulum_angle(pendulum_coords, center_coords)
         s=pendulum_side / 1.41
@@ -99,7 +99,6 @@ while True:
                    gr.Point((c.x + s*math.cos(math.pi/4 - a)),(c.y - s*math.sin(math.pi/4 - a))),
                    gr.Point((c.x + s*math.sin(math.pi/4 - a)),(c.y + s*math.cos(math.pi/4 - a))),
                    gr.Point((c.x - s*math.cos(math.pi/4 - a)),(c.y + s*math.sin(math.pi/4 - a))))
-        #pendulum = gr.Circle(pendulum_coords, pendulum_side)
         pendulum.setFill('white')
         pendulum.draw(window)
         
