@@ -71,7 +71,7 @@ def square_pendulum():
     while True:
             pendulum_coords = recount_coords(pendulum_coords, velocity)
 #i have no idea how to redraw figure in another function instead of one, where it was named, so i leave redrawing
-#pendulum and kernel in the main body        
+#pendulum and kernel in this function        
             kernel.undraw()
             kernel = gr.Line(pendulum_coords, center_coords)
             kernel.setFill('white')
@@ -116,7 +116,7 @@ def circle_pendulum():
     while True:
             pendulum_coords = recount_coords(pendulum_coords, velocity)
 #i have no idea how to redraw figure in another function instead of one, where it was named, so i leave redrawing
-#pendulum and kernel in the main body        
+#pendulum and kernel in this function        
             kernel.undraw()
             kernel = gr.Line(pendulum_coords, center_coords)
             kernel.setFill('white')
