@@ -47,21 +47,7 @@ def recount_acceleration(pendulum_coords, center_coords, velocity, moment_of_ine
 def recount_pendulum_angle(pendulum_coords, center_coords):
     radius_vector = sub_coords(pendulum_coords, center_coords)
     distance = absolute_value(radius_vector)
-    return (-1)*radius_vector.x/distance
-
-def drawing_pendulum(pendulum_coords, pendulum_angle, pendulum_side):
-    pendulum.undraw()
-    c=pendulum_coords
-    a=recount_pendulum_angle(pendulum_coords, center_coords)
-    s=pendulum_side / 1.41
-    pendulum = gr.Polygon(gr.Point((c.x - s*math.sin(math.pi/4 - a)),(c.y - s*math.cos(math.pi/4 - a))),
-               gr.Point((c.x + s*math.cos(math.pi/4 - a)),(c.y - s*math.sin(math.pi/4 - a))),
-               gr.Point((c.x + s*math.sin(math.pi/4 - a)),(c.y + s*math.cos(math.pi/4 - a))),
-               gr.Point((c.x - s*math.cos(math.pi/4 - a)),(c.y + s*math.sin(math.pi/4 - a))))
-    pendulum.setFill('white')
-    pendulum.draw(window)
-    
-
+    return (-1)*radius_vector.x/distance   
 
 #main body begins there ->
 
@@ -84,12 +70,13 @@ pendulum.draw(window)
 
 while True:
         pendulum_coords = recount_coords(pendulum_coords, velocity)
+#i have no idea how to redraw figure in another function instead of one, where it was named, so i leave redrawing
+#pendulum and kernel in the main body        
         kernel.undraw()
         kernel = gr.Line(pendulum_coords, center_coords)
         kernel.setFill('white')
         kernel.setWidth(3)
         kernel.draw(window)
-
         
         pendulum.undraw()
         c=pendulum_coords
