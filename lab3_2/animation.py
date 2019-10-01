@@ -5,7 +5,7 @@ SIZE_X = 1080
 SIZE_Y = 720
 
 #acceleration of gravity
-g=10
+g=5
 
 window = gr.GraphWin("Animation_Win", SIZE_X, SIZE_Y)
 
@@ -36,7 +36,7 @@ def recount_acceleration(pendulum_coords, center_coords, velocity, moment_of_ine
     radius_vector = sub_coords(pendulum_coords, center_coords)
     distance = absolute_value(radius_vector)
     absolute_velocity = absolute_value(velocity)
-    angular_acceleration = (g * mass * radius_vector.x) / (distance * moment_of_inertia)
+    angular_acceleration = (g * mass * radius_vector.x) / ( moment_of_inertia)
 
     normal_acceleration = gr.Point(((-1) * radius_vector.x * absolute_velocity**2)/(distance**2),
     ((-1) * radius_vector.y * absolute_velocity**2)/(distance**2))
@@ -48,7 +48,7 @@ def recount_acceleration(pendulum_coords, center_coords, velocity, moment_of_ine
 def recount_pendulum_angle(pendulum_coords, center_coords):
     radius_vector = sub_coords(pendulum_coords, center_coords)
     distance = absolute_value(radius_vector)
-    return radius_vector.x/distance
+    return (-1)*radius_vector.x/distance
 
 def drawing_pendulum(pendulum_coords, pendulum_angle, pendulum_side):
     c=pendulum_coords
@@ -65,11 +65,11 @@ def drawing_pendulum(pendulum_coords, pendulum_angle, pendulum_side):
 #main body begins there ->
 
 pendulum_coords = gr.Point(540, 480)
-center_coords = gr.Point(540, 360)
-velocity = gr.Point(5, 0)
+center_coords = gr.Point(540, 100)
+velocity = gr.Point(10, 0)
 pendulum_side = 60
 distance = absolute_value(sub_coords(pendulum_coords,center_coords))
-mass = 200
+mass = 500
 moment_of_inertia = mass * (pendulum_side**2/12 + distance**2)
 
 kernel = gr.Line(center_coords,pendulum_coords)
