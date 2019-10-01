@@ -140,8 +140,6 @@ choice = int(input())
 
 if choice == 1:
     square_pendulum()
-    print('OK. Change window to see the pendulum')
 
 if choice == 2:
     circle_pendulum()
-    print('OK. Change window to see the pendulum')
