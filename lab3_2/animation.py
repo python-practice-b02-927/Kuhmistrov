@@ -102,7 +102,7 @@ def circle_pendulum():
     pendulum_side = 60
     distance = absolute_value(sub_coords(pendulum_coords, center_coords))
     mass = 500
-    moment_of_inertia = mass * (0.05*pendulum_side**2 + distance**2)
+    moment_of_inertia = mass * (0.05 * pendulum_side**2 + distance**2)
 
     kernel = gr.Line(center_coords, pendulum_coords)
     kernel.setFill('white')
