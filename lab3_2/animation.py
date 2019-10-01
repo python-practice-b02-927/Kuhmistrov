@@ -49,7 +49,6 @@ def recount_pendulum_angle(pendulum_coords, center_coords):
     distance = absolute_value(radius_vector)
     return (-1)*radius_vector.x/distance   
 
-#main body begins there ->
 
 def square_pendulum():
     pendulum_coords = gr.Point(540, 480)
@@ -125,13 +124,6 @@ def circle_pendulum():
             kernel.draw(window)
         
             pendulum1.undraw()
-            #c=pendulum_coords
-            #a=recount_pendulum_angle(pendulum_coords, center_coords)
-            #s=pendulum_side / 1.41
-            #pendulum = gr.Polygon(gr.Point((c.x - s*math.sin(math.pi/4 - a)),(c.y - s*math.cos(math.pi/4 - a))),
-            #           gr.Point((c.x + s*math.cos(math.pi/4 - a)),(c.y - s*math.sin(math.pi/4 - a))),
-            #           gr.Point((c.x + s*math.sin(math.pi/4 - a)),(c.y + s*math.cos(math.pi/4 - a))),
-            #           gr.Point((c.x - s*math.cos(math.pi/4 - a)),(c.y + s*math.sin(math.pi/4 - a))))
             pendulum1 = gr.Circle(pendulum_coords, pendulum_side)
             pendulum1.setFill('white')
             pendulum1.draw(window)
