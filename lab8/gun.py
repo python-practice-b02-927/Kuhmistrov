@@ -30,6 +30,10 @@ start_r = 45 #start_r и sub_r служат для изменения парам
 sub_r = 0
 colors = ['blue', 'green', 'red', 'yellow']
 points = 0
+wind = rnd(-5, 5)
+wind = wind * 0.2
+wind_show = canv.create_text(1000, 30, text=('wind = ' + str(wind)),
+         font=("impact", 20))
 
 
 class ball():
@@ -73,7 +77,7 @@ class ball():
         )
 
     def move(self):
-        global g
+        global g, wind
         """Переместить мяч по прошествии единицы времени.
 
         Обновление координаты со временем, обновление скорости мяча и удаление мяча,
@@ -83,6 +87,7 @@ class ball():
         self.x += self.vx
         self.y -= self.vy
         self.vy -= g
+        self.vx += wind
         self.set_coords()
         if self.x > 1200 or self.y > 600:
             canv.delete(self.id)
@@ -244,7 +249,7 @@ class target():
         Изменение глбальных start_r, sub_r
         Обновление очков за эту цель
         """
-        global start_r, sub_r, points, canv_points
+        global start_r, sub_r, points, canv_points, wind
         self.is_hitted = True
         canv.coords(self.id, -10, -10, -10, -10)
         points += pointss
@@ -255,6 +260,10 @@ class target():
         sub_r += 4
         if sub_r >= 44:
             sub_r = 44
+        wind = rnd(-5, 5)
+        wind = wind * 0.2
+        canv.itemconfig(wind_show, text=('wind = ' + str(wind)))
+
 
     def set_coords(self):
         if not self.is_hitted:
@@ -279,8 +288,8 @@ class target():
 
 t1 = target('red')
 t2 = target('blue')
-screen1 = canv.create_text(600, 50, text='', font=("impact", 20))
-screen2 = canv.create_text(600, 100, text='', font=("impact", 20))
+screen1 = canv.create_text(600, 30, text='', font=("impact", 20))
+screen2 = canv.create_text(600, 60, text='', font=("impact", 20))
 g1 = gun()
 bullet_1 = 0
 bullet_2 = 0
