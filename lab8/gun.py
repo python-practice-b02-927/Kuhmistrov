@@ -9,6 +9,14 @@
 #8 normalno vivodit score +
 #9 normalno schitat popadanie +
 #10* sdelat vivod po krasote
+
+#список че сделано сверх задания
+#1.Добавлен "ветер"
+#2.Прокачана проверка попадания в цель, реализована через геометрию
+#3.Изменены параметры экрана, все параметры в динамике отбалансированы
+#4.Минорные изменения в системе подсчетов, добавил возможность "крутить" некоторые параметры не в функциях
+#5.Изменил вывод текста, он реализован был очень уж странно
+#6.ваще много че сделал все уже не помню
 from random import randrange as rnd, choice
 import tkinter as tk
 import math
@@ -32,7 +40,7 @@ colors = ['blue', 'green', 'red', 'yellow']
 points = 0
 wind = rnd(-5, 5)
 wind = wind * 0.2
-wind_show = canv.create_text(1000, 30, text=('wind = ' + str(wind)),
+wind_show = canv.create_text(1000, 30, text=('wind = ' + "%.2f" % (wind)),
          font=("impact", 20))
 
 
@@ -262,7 +270,7 @@ class target():
             sub_r = 44
         wind = rnd(-5, 5)
         wind = wind * 0.2
-        canv.itemconfig(wind_show, text=('wind = ' + str(wind)))
+        canv.itemconfig(wind_show, text=('wind = ' + "%.2f" % (wind)))
 
 
     def set_coords(self):
@@ -321,7 +329,7 @@ def new_game(event=''):
                 #canv.bind('<Button-1>', '')
                 #canv.bind('<ButtonRelease-1>', '')
                 if (bullet_1 == 0):
-                    canv.itemconfig(screen1, text='Цель-1 погибла сразу.\
+                    canv.itemconfig(screen1, text='Цель-1 погибла сразу. \
 Впечатляет!')
                 elif ((bullet_1 % 10) == 1) and (bullet_1 != 11):
                     canv.itemconfig(screen1, text='Вы уничтожили цель-1 за ' \
@@ -346,7 +354,7 @@ def new_game(event=''):
                 #canv.bind('<Button-1>', '')
                 #canv.bind('<ButtonRelease-1>', '')
                 if (bullet_2 == 0):
-                    canv.itemconfig(screen2, text='Цель-2 погибла сразу.\
+                    canv.itemconfig(screen2, text='Цель-2 погибла сразу. \
 Впечатляет!')
                 elif ((bullet_2 % 10) == 1) and (bullet_2 != 11):
                     canv.itemconfig(screen2, text='Вы уничтожили цель-2 за ' \
